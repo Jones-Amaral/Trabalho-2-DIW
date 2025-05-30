@@ -29,6 +29,11 @@
                             <a class="nav-link active fs-3" id="curi" href="#" aria-disabled="true">Curiosidades</a>
                         </div>
                     </div>
+                    <div id="opcoes">
+                        <a href="cadastroCRUD.html" class="cadastroHeader active">Cadastro</a>
+                        <a href="favoritos.html" class="favoritoHeader">Favoritos</a>
+                        <a href="login.html" class="loginHeader">Login / Logout</a>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -95,7 +100,7 @@
         } else {
             document.getElementById("introducao").innerHTML = `<p>Noticia não encontrada</p>`
         }
-        
+
         /* Cards ao final */
         let fotoItem = document.getElementById("fotoItem")
         let strCards = ""
