@@ -1,0 +1,316 @@
+header {
+    background-color: #38b6ff;
+    max-height: 100px;
+}
+
+#img-logo {
+    height: 80px;
+}
+
+#navBarMenu {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#destaque {
+    max-width: 100%;
+    border-bottom: 3px solid #ff914d;
+}
+
+#todosItens {
+    max-width: 100%;
+    border-bottom: 3px solid #ff914d;
+}
+
+#alunoInfo {
+    max-width: 100%;
+    border-bottom: 3px solid #ff914d;
+}
+
+#tituloItem {
+    max-width: 100%;
+    border-bottom: 3px solid #ff914d;
+}
+
+#infoGeral {
+    max-width: 100%;
+    border-bottom: 3px solid #ff914d;
+}
+
+/* texto */
+
+h1 {
+    text-align: center;
+    color: #ff914d;
+}
+
+h2 {
+    color: #38b6ff;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h3 {
+    font-size: 2rem;
+    text-decoration: underline #636262;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#todosNoticia h2 {
+    margin-bottom: 20px;
+}
+
+#todosNoticia p {
+    margin-bottom: 20px;
+}
+
+.tituloCarrossel{
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+}
+.resumoCarrossel{
+    color: black;
+    font-weight: 500;
+}
+
+h4 {
+    color: #636262;
+    padding: 0 15px;
+    font-size: 15pt;
+}
+
+h5 {
+    text-align: center;
+    padding: 0 15px;
+    color: #38b6ff;
+}
+
+h6 {
+    text-align: center;
+    padding: 0 15px;
+    color: #636262;
+}
+
+p {
+    text-align: justify;
+}
+
+/* Fim texto */
+
+
+#meio,
+#curi,
+#econ,
+#mundo {
+    color: white;
+
+}
+
+#rep1,
+#rep2,
+#rep3 {
+    max-height: 500px;
+
+}
+
+#container {
+    align-items: center;
+}
+
+
+#whats,
+#insta {
+    width: 30px;
+}
+
+#minhaFoto {
+    width: 150px;
+}
+
+.infoEstudante {
+    display: flex;
+    align-items: flex-start;
+}
+
+.dadosEstudante {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info {
+    max-width: 100%;
+    max-height: 90%;
+    background-color: rgb(233, 236, 240);
+}
+
+.card-img-top {
+    height: 200px;
+}
+
+.carousel-inner img {
+    object-fit: cover;
+    max-height: 600px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.imagem-banner {
+    width: 800px;
+}
+
+.imagem-2 {
+    width: 800px;
+}
+#carrossel.img-carrossel{
+    height: 800px;
+}
+.reportagem-flex {
+    display: flex;
+    width: 100%;
+}
+.resumoCarrossel{
+    text-align: center;
+}
+
+.espaco-vazio {
+    flex: 1;
+}
+
+.reportagemCentro {
+    flex: 1;
+    text-align: center;
+    ;
+}
+
+#redes-sociais{
+    text-align: center;
+}
+
+/* de celulares à tablets */
+@media (max-width: 991.98px) {
+    #img-logo {
+        text-align: center;
+    }
+
+    .card-img-top {
+        height: 200px;
+        width: 400px;
+    }
+
+    #meio,
+    #mundo,
+    #econ,
+    #curi {
+        color: black;
+
+    }
+
+    #meio,
+    #mundo,
+    #econ {
+        border-bottom: 2px solid black;
+    }
+
+    #navbarNavAltMarkup {
+        text-align: center;
+        background-color: gainsboro;
+    }
+
+    h3 {
+        font-size: 20pt;
+        margin-top: 20px;
+        padding: 0 15px;
+        text-decoration: underline #636262;
+    }
+
+    h4 {
+        color: #636262;
+        padding: 0 15px;
+        font-size: 15pt;
+    }
+
+    h5 {
+        text-align: start;
+        padding: 0 15px;
+        color: #38b6ff;
+    }
+
+    h6 {
+        text-align: start;
+        padding: 0 15px;
+        color: #636262;
+    }
+
+    p {
+        padding: 0 15px;
+        text-align: justify;
+    }
+
+    .reportagem-flex {
+        display: inline;
+        width: 100%;
+    }
+
+    .espaco-vazio {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+    h3 {
+        font-size: 20pt;
+        margin-top: 20px;
+        padding: 0 15px;
+        text-decoration: underline #636262;
+    }
+
+    h4 {
+        color: #636262;
+        padding: 0 15px;
+        font-size: 15pt;
+    }
+
+    h5 {
+        text-align: start;
+        padding: 0 15px;
+        color: #38b6ff;
+    }
+
+    h6 {
+        text-align: start;
+        padding: 0 15px;
+        color: #636262;
+    }
+
+    #introducao {
+        width: 100%;
+        text-align: center;
+    }
+
+    p {
+        padding: 0 15px;
+        text-align: justify;
+    }
+
+    .imagem-banner {
+        max-width: 100%;
+    }
+
+    .imagem-2 {
+        max-width: 100%;
+    }
+    #info2 .infoEstudante{
+        align-items: center;
+    }
+
+    #img-carrossel{
+        min-height: 300px;
+    }
+
+}
