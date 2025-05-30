@@ -11,27 +11,7 @@ header {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#destaque {
-    max-width: 100%;
-    border-bottom: 3px solid #ff914d;
-}
-
-#todosItens {
-    max-width: 100%;
-    border-bottom: 3px solid #ff914d;
-}
-
-#alunoInfo {
-    max-width: 100%;
-    border-bottom: 3px solid #ff914d;
-}
-
-#tituloItem {
-    max-width: 100%;
-    border-bottom: 3px solid #ff914d;
-}
-
-#infoGeral {
+#destaque, #todosItens, #alunoInfo, #infoGeral, .cadastroTitulo, .favoritoTitulo, .loginTitulo {
     max-width: 100%;
     border-bottom: 3px solid #ff914d;
 }
