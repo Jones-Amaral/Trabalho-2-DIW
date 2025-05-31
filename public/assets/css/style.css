@@ -209,11 +209,13 @@ a {
 /* Página de cadastro */
 
 #idInput,
-#idCampo1,
-#idCampo2,
-#idCampo3,
-#idCampo4,
-#idCampo5 {
+#idTitulo,
+#idSubtitulo,
+#idAutor,
+#idData,
+#idCategoria,
+#idBanner,
+#idCorpo {
     width: 100%;
     border-color: #ff914d;
     background-color: #dbf3ff;
@@ -222,17 +224,6 @@ a {
     font-size: 15px;
     font-weight: 500;
     padding-left: 10px;
-}
-
-#idCampo1,
-#idCampo2,
-#idCampo3,
-#idCampo4,
-#idCampo5 {
-    width: 100%;
-}
-
-#idInput {
     width: 100%;
 }
 

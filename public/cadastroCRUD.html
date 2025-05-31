@@ -58,28 +58,38 @@
                                     <input type="text" id="idInput" required disabled>
                                 </div>
                                 <div class="input2 col-lg-6 col-xs-12 ">
-                                    Input1:
-                                    <input type="text" id="idCampo1" required>
+                                    Titulo:
+                                    <input type="text" id="idTitulo" required>
                                 </div>
                             </div>
                             <div class="row containerCampos2">
                                 <div class="input3 col-lg-6 col-xs-12 ">
-                                    Input2:
-                                    <input type="text" id="idCampo2" required>
+                                    Subtitulo:
+                                    <input type="text" id="idSubtitulo" required>
                                 </div>
                                 <div class="input4 col-lg-6 col-xs-12 ">
-                                    Input3:
-                                    <input type="text" id="idCampo3" required>
+                                    Autor:
+                                    <input type="text" id="idAutor" required>
                                 </div>
                             </div>
                             <div class="row containerCampos3">
                                 <div class="input5 col-lg-6 col-xs-12 ">
-                                    Input4:
-                                    <input type="text" id="idCampo4" required>
+                                    Data de publicação:
+                                    <input type="text" id="idData" required>
                                 </div>
                                 <div class="input6 col-lg-6 col-xs-12 ">
-                                    Input5:
-                                    <input type="text" id="idCampo5" required>
+                                    Categoria:
+                                    <input type="text" id="idCategoria" required>
+                                </div>
+                            </div>
+                            <div class="row containerCampos4">
+                                <div class="input5 col-lg-6 col-xs-12 ">
+                                    Banner:
+                                    <input type="text" id="idBanner" required>
+                                </div>
+                                <div class="input6 col-lg-6 col-xs-12 ">
+                                    Corpo:
+                                    <input type="text" id="idCorpo" required>
                                 </div>
                             </div>
                         </div>
@@ -90,9 +100,9 @@
                             <button id="btnExcluir">Excluir</button>
                         </div>
                     </div>
-                    
+
                     <h1 class="listagemItens">Listagem de Itens</h1>
-                    <table></table><!-- Noticias -->
+                    <div id="noticiasTabela"></div>
                 </div>
 
 
@@ -108,5 +118,46 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
+<script>
+    fetch("http://localhost:3000/noticias")
+        .then(res => res.json())
+        .then(data => carregarNoticias(data))
+        .catch(err => console.error(err))
+</script>
+
+<script>
+    function carregarNoticias(data) {
+        const tabelaNoticias = document.getElementById("noticiasTabela");
+        tabelaNoticias.innerHTML = `
+                <table id="tabelaNoticia">
+                    <tr>
+                        <td>Id</td>
+                        <td>Título</td>
+                        <td>Descrição</td>
+                        <td>Data Publi</td>
+                        <td>Categoria</td>
+                    </tr>
+                </table>`;
+        const tabela = tabelaNoticias.querySelector("table");
+        data.forEach(noticia => {
+            const row = `
+                <tr>
+                    <td>${noticia.id}</td>
+                    <td>${noticia.titulo}</td>
+                    <td>${noticia.descricao}</td>
+                    <td>${noticia.data}</td>
+                    <td>${noticia.categoria}</td>
+                </tr>`
+            tabela.innerHTML += row;
+            const linhas = document.querySelectorAll("#tabelaNoticias tr")
+            linhas.forEach((linha,index) =>{
+                if (index === 0) return;
+                linha.addEventListener("click", () => {
+                    /* Parei aqui */
+                })
+            })
+        });
+    }
+</script>
 
 </html>
