@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <nav id="navbar" class="navbar navbar-expand-lg z-3">
             <div class="container-fluid">
@@ -51,11 +51,11 @@
                     <h1 class="cadastroTitulo">Cadastro de Item</h1>
 
                     <div class="containerCadastro"> <!-- CRUD -->
-                        <div class="container containerCampos">
+                        <form class="container containerCampos" id="formNoticia">
                             <div class="row containerCampos1">
                                 <div class="input1 col-lg-6 col-xs-12 ">
                                     ID:
-                                    <input type="text" id="idInput" required disabled>
+                                    <input type="text" id="idInput" disabled>
                                 </div>
                                 <div class="input2 col-lg-6 col-xs-12 ">
                                     Titulo:
@@ -92,7 +92,7 @@
                                     <input type="text" id="idCorpo" required>
                                 </div>
                             </div>
-                        </div>
+                        </form>
 
                         <div class="botoesCRUD">
                             <button id="btnInserir">Inserir</button>
@@ -119,13 +119,78 @@
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
 <script>
-    fetch("http://localhost:3000/noticias")
-        .then(res => res.json())
-        .then(data => carregarNoticias(data))
-        .catch(err => console.error(err))
-</script>
+    function init() {
+        fetch("http://localhost:3000/noticias")
+            .then(res => res.json())
+            .then(data => carregarNoticias(data))
+            .catch(err => console.error(err))
+        const btnInserir = document.getElementById("btnInserir");
+        const btnAlterar = document.getElementById("btnAlterar");
+        const btnExcluir = document.getElementById("btnExcluir");
 
-<script>
+        btnInserir.addEventListener("click", () => {
+            const titulo = document.getElementById("idTitulo").value;
+            const subtitulo = document.getElementById("idSubtitulo").value;
+            const autor = document.getElementById("idAutor").value;
+            const data = document.getElementById("idData").value;
+            const categoria = document.getElementById("idCategoria").value;
+            const banner = document.getElementById("idBanner").value;
+            const corpo = document.getElementById("idCorpo").value;
+
+            if (!titulo | !subtitulo | !autor | !data | !categoria | !banner | !corpo) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            const noticia = {
+                titulo: titulo,
+                descricao: subtitulo,
+                conteudo: corpo,
+                categoria: categoria,
+                data: data,
+                imagem: banner,
+                autor: autor,
+            }
+            createNoticia(noticia, carregarNoticias);
+            document.getElementById("formNoticia").reset();
+        });
+
+        btnAlterar.addEventListener("click", () => {
+            const id = document.getElementById("idInput").value;
+            if (!id) {
+                alert("Selecione uma noticia para alterar.");
+                return;
+            }
+            const noticia = {
+                titulo: document.getElementById("idTitulo").value,
+                descricao: document.getElementById("idSubtitulo").value,
+                conteudo: document.getElementById("idCorpo").value,
+                categoria: document.getElementById("idCategoria").value,
+                data: document.getElementById("idData").value,
+                imagem: document.getElementById("idBanner").value,
+                autor: document.getElementById("idAutor").value,
+            }
+            updateNoticia(parseInt(id), noticia, carregarNoticias);
+            document.getElementById("formNoticia").reset();
+        });
+
+        btnExcluir.addEventListener("click", () => {
+            const id = document.getElementById("idInput").value;
+            if (!id) {
+                alert("Selecione uma noticia para excluir.");
+                return;
+            }
+            if (confirm("Tem certeza que deseja excluir essa noticia?")) {
+                deleteNoticia(parseInt(id), () => {
+                    document.getElementById("formNoticia").reset();
+                    readNoticia(carregarNoticias);
+                });
+            }
+        });
+
+
+    }
+
     function carregarNoticias(data) {
         const tabelaNoticias = document.getElementById("noticiasTabela");
         tabelaNoticias.innerHTML = `
@@ -133,30 +198,51 @@
                     <tr>
                         <td>Id</td>
                         <td>Título</td>
-                        <td>Descrição</td>
                         <td>Data Publi</td>
-                        <td>Categoria</td>
+                        <td>Autor</td>
+                        <td id="apagar">Descrição</td>
+                        <td id="apagar">Categoria</td>
+                        <td id="apagar">Corpo</td>
+                        <td id="apagar">Banner</td>
                     </tr>
                 </table>`;
         const tabela = tabelaNoticias.querySelector("table");
+
         data.forEach(noticia => {
             const row = `
                 <tr>
                     <td>${noticia.id}</td>
                     <td>${noticia.titulo}</td>
-                    <td>${noticia.descricao}</td>
                     <td>${noticia.data}</td>
-                    <td>${noticia.categoria}</td>
+                    <td>${noticia.autor}</td>
+                    <td id="apagar">
+                      <div class="limitar-texto">${noticia.descricao}</div>
+                    </td>
+                    <td id="apagar">${noticia.categoria}</td>
+                    <td id="apagar">
+                      <div class="limitar-texto">${noticia.conteudo}</div>
+                    </td>
+                    <td id="apagar">${noticia.imagem}</td>
+
                 </tr>`
             tabela.innerHTML += row;
-            const linhas = document.querySelectorAll("#tabelaNoticias tr")
-            linhas.forEach((linha,index) =>{
-                if (index === 0) return;
-                linha.addEventListener("click", () => {
-                    /* Parei aqui */
-                })
-            })
         });
+
+        const linhas = document.querySelectorAll("#tabelaNoticia tr")
+        linhas.forEach((linha, index) => {
+            if (index === 0) return;
+            linha.addEventListener("click", () => {
+                const colunas = linha.querySelectorAll("td");
+                document.getElementById("idInput").value = colunas[0].innerText;
+                document.getElementById("idTitulo").value = colunas[1].innerText;
+                document.getElementById("idData").value = colunas[2].innerText;
+                document.getElementById("idAutor").value = colunas[3].innerText;
+                document.getElementById("idSubtitulo").value = colunas[4].innerText;
+                document.getElementById("idCategoria").value = colunas[5].innerText;
+                document.getElementById("idCorpo").value = colunas[6].innerText;
+                document.getElementById("idBanner").value = colunas[7].innerText;
+            })
+        })
     }
 </script>
 

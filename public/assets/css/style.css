@@ -103,6 +103,15 @@ p {
     text-align: justify;
 }
 
+.limitar-texto {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+
 /* Fim texto */
 
 #home,
@@ -255,6 +264,13 @@ a {
     border-color: #ff914d;
 }
 
+td {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+
 /* Fim cadastro */
 /* de celulares à tablets */
 @media (max-width: 991.98px) {
@@ -398,5 +414,8 @@ a {
 
     .direita {
         display: none !important;
+    }
+    #apagar{
+        display: none;
     }
 }
