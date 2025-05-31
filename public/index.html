@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body onload="carregaDados()">
+<body>
     <header>
         <nav id="navbar" class="navbar navbar-expand-lg z-3">
             <div class="container-fluid">
@@ -50,10 +50,10 @@
             <h1 id="todosItens">Todos os Itens</h1>
             <div class="row justify-content-center g-4" id="todosNoticia"></div>
         </div>
-
+        <!-- Gráfico -->
         <div class="grafico">
             <h1 id="graficoTitulo">Gráfico</h1>
-            <img src="assets/img/joao.jpg" class="imgTrocar"> trocar aqui<!-- Colocar o gráfico aqui -->
+            <canvas id="myChart"></canvas>
         </div>
     </main>
 
@@ -100,6 +100,19 @@
     </footer>
 
 </body>
+
+<!-- Fetch -->
+<script>
+    fetch("http://localhost:3000/noticias")
+        .then(res => res.json())
+        .then(data => {
+            carregaDados(data);
+            Graficos(data)
+        })
+        .catch(err => console.error(err))
+</script>
+
+<!-- Cards e Carrossel -->
 <script>
     function carregaDados(noticias) {
         let carrosselNoticias = document.getElementById("carrossel")
@@ -173,17 +186,59 @@
         todosNoticia.innerHTML = strCards
     }
 </script>
+
+<!-- Gráficos -->
 <script>
-    fetch("http://localhost:3000/noticias")
-        .then(res => res.json())
-        .then(data => {
-           carregaDados(data);
+    function Graficos(noticias) {
+        const labels = noticias.map(noticia => noticia.categoria);
+        const ctx = document.getElementById("myChart");
+        const categoriaNoticia = [0, 0, 0, 0, 0]
+        noticias.forEach(noticia => {
+            switch (noticia.categoria) {
+                case "Economia":
+                    categoriaNoticia[0]++;
+                    break;
+                case "Meio Ambiente":
+                    categoriaNoticia[1]++;
+                    break;
+                case "Mundo":
+                    categoriaNoticia[2]++;
+                    break;
+                case "Saúde":
+                    categoriaNoticia[3]++;
+                    break;
+                case "Trabalho e Carreira":
+                    categoriaNoticia[4]++;
+                    break;
+            }
         })
-        .catch(err => console.error(err))
+        new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: ["Economia", "Meio Ambiente", "Mundo", "Saúde", "Trabalho e Carreira"],
+                datasets: [{
+                    label: 'Número de Notícias com a categoria',
+                    data: categoriaNoticia,
+                    backgroundColor: [
+                        'rgb(255, 0, 0)',
+                        'rgb(0, 38, 255)',
+                        'rgb(0, 255, 60)',
+                        'rgb(0, 162, 255)',
+                        'rgb(0, 255, 183)',
+
+                    ],
+                    hoverOffset: 6
+                }]
+            }
+        });
+
+    }
 </script>
 <script src="/assets/js/JSON.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </html>
