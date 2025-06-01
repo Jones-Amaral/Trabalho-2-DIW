@@ -99,6 +99,8 @@ h6 {
     color: #636262;
 }
 
+
+
 p {
     text-align: justify;
 }
@@ -192,13 +194,16 @@ a {
 #carrossel.img-carrossel {
     height: 800px;
 }
-.grafico{
-text-align: center;
+
+.grafico {
+    text-align: center;
 }
-#myChart{
-width: 100%;
-max-height: 600px;
+
+#myChart {
+    width: 100%;
+    max-height: 600px;
 }
+
 .reportagem-flex {
     display: flex;
     width: 100%;
@@ -220,6 +225,31 @@ max-height: 600px;
 
 #redes-sociais {
     text-align: center;
+}
+
+.btnProcurar {
+    border-radius: 5px;
+    color: #ff914d;
+    background-color: #dbf3ff;
+    border-color: #ff914d;
+    font-weight: 600;
+}
+
+.inputProcurar {
+    border-radius: 5px;
+    color: #ff914d;
+    background-color: #dbf3ff;
+    border-color: #ff914d;
+    font-weight: 600;
+}
+
+.btnProcurar:hover {
+    color: #ffffff;
+    background-color: #38b6ff;
+    border: #ff914d solid 1px;
+    border-radius: 5px;
+    font-weight: 700;
+
 }
 
 /* Página de cadastro */
@@ -251,10 +281,10 @@ max-height: 600px;
 #btnInserir,
 #btnAlterar,
 #btnExcluir {
-    background-color: #dbf3ff;
     padding: 5px;
-    color: #ff914d;
     border-radius: 5px;
+    color: #ff914d;
+    background-color: #dbf3ff;
     border-color: #ff914d;
     font-weight: 600;
     font-size: 20px;
@@ -279,6 +309,19 @@ td {
 
 
 /* Fim cadastro */
+
+/* Página de Login */
+.btnCadastrar:hover,
+.btnLogin:hover {
+    background-color: white;
+    border: #38b6ff 2px solid;
+}
+
+.inputUsuario, .inputSenha{
+border-color: #38b6ff;
+}
+
+/* Fim Login */
 /* de celulares à tablets */
 @media (max-width: 991.98px) {
     #img-logo {
@@ -346,6 +389,7 @@ td {
         padding: 0 15px;
         color: #636262;
     }
+
 
     p {
         padding: 0 15px;
@@ -422,7 +466,8 @@ td {
     .direita {
         display: none !important;
     }
-    #apagar{
+
+    #apagar {
         display: none;
     }
 }

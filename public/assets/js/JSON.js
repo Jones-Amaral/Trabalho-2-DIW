@@ -199,3 +199,75 @@ const noticias = [
         ]
     }
 ]
+const usuarios = [
+    {
+        "id": 1,
+        "usuario": "joaosilva",
+        "nome_completo": "João da Silva",
+        "email": "joao.silva@example.com",
+        "senha": "senhaJoao123"
+    },
+    {
+        "id": 2,
+        "usuario": "mariaoliveira",
+        "nome_completo": "Maria Oliveira",
+        "email": "maria.oliveira@example.com",
+        "senha": "senhaMaria456"
+    },
+    {
+        "id": 3,
+        "usuario": "carlospereira",
+        "nome_completo": "Carlos Pereira",
+        "email": "carlos.pereira@example.com",
+        "senha": "senhaCarlos789"
+    },
+    {
+        "id": 4,
+        "usuario": "anasouza",
+        "nome_completo": "Ana Souza",
+        "email": "ana.souza@example.com",
+        "senha": "senhaAna321"
+    },
+    {
+        "id": 5,
+        "usuario": "fernandalima",
+        "nome_completo": "Fernanda Lima",
+        "email": "fernanda.lima@example.com",
+        "senha": "senhaFernanda654"
+    },
+    {
+        "id": 6,
+        "usuario": "ricardomartins",
+        "nome_completo": "Ricardo Martins",
+        "email": "ricardo.martins@example.com",
+        "senha": "senhaRicardo987"
+    },
+    {
+        "id": 7,
+        "usuario": "beatrizrocha",
+        "nome_completo": "Beatriz Rocha",
+        "email": "beatriz.rocha@example.com",
+        "senha": "senhaBeatriz741"
+    },
+    {
+        "id": 8,
+        "usuario": "lucasfernandes",
+        "nome_completo": "Lucas Fernandes",
+        "email": "lucas.fernandes@example.com",
+        "senha": "senhaLucas852"
+    },
+    {
+        "id": 9,
+        "usuario": "julianamendes",
+        "nome_completo": "Juliana Mendes",
+        "email": "juliana.mendes@example.com",
+        "senha": "senhaJuliana963"
+    },
+    {
+        "id": 10,
+        "usuario": "paulogoncalves",
+        "nome_completo": "Paulo Gonçalves",
+        "email": "paulo.goncalves@example.com",
+        "senha": "senhaPaulo159"
+    }
+]

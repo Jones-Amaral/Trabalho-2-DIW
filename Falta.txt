@@ -1,1 +1,1 @@
-Falta a parte de login e favoritos
+Falta a pesquisa, terminar o login e favoritos

@@ -22,13 +22,15 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                     <div class="navbar-nav" id="navBarMenu">
-                        <a class="nav-link active fs-3 m-1" id="home" aria-current="page" href="index.html">Home</a>                        
+                        <a class="nav-link active fs-3 m-1" id="home" aria-current="page" href="index.html">Home</a>
                         <a class="nav-link active fs-3 m-1" id="econ" href="#">Economia</a>
                         <a class="nav-link active fs-3 m-1" id="meio" href="#">Meio Ambiente</a>
                         <a class="nav-link active fs-3 m-1" id="mundo" href="#">Mundo</a>
                         <a class="nav-link active fs-3 m-1" id="curi" href="#">Curiosidades</a>
-                        <a href="cadastroCRUD.html" id="cadastroHeader" class="nav-link active fs-3 m-1"><u>Cadastro</u></a>
-                        <a href="favoritos.html" id="favoritoHeader" class="nav-link active fs-3 m-1"><u>Favoritos</u></a>
+                        <a href="cadastroCRUD.html" id="cadastroHeader"
+                            class="nav-link active fs-3 m-1"><u>Cadastro</u></a>
+                        <a href="favoritos.html" id="favoritoHeader"
+                            class="nav-link active fs-3 m-1"><u>Favoritos</u></a>
                         <a href="login.html" id="loginHeader" class="nav-link active fs-3 m-1"><u>Login | Logout</u></a>
                     </div>
                 </div>
@@ -37,12 +39,153 @@
     </header>
 
     <main>
-<h1 class="loginTitulo">Faça Login</h1>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="esquerda col-lg-2"></div>
+
+                <div class="centro col-lg-8 col-xs-12">
+                    <div id="login">
+                        <div class="container">
+                            <div id="login-row" class="row justify-content-center align-items-center">
+                                <div id="login-column" class="col-md-6">
+                                    <div id="login-box" class="col-md-12">
+                                        <form id="login-form" class="form" method="post" onsubmit="loginUser (this)">
+                                            <h1 class="text-center">Login</h1>
+                                            <div class="form-group">
+                                                <label for="username" class="text-info fs-3">Usuário</label><br>
+                                                <input type="text" name="username" id="username"
+                                                    class="inputUsuario form-control"
+                                                    placeholder="Digite o nome do usuário...">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="text-info fs-3">Senha</label><br>
+                                                <input type="password" name="password" id="password"
+                                                    class="inputSenha form-control" placeholder="Digite sua senha...">
+                                            </div>
+                                            <div class="form-group text-end pt-2">
+                                                <button type="button" class="btnCadastrar btn btn-info"
+                                                    data-toggle="modal" data-target="#loginModal">Cadastrar</button>
+                                                <input type="submit" name="submit" class="btnLogin btn btn-info btn-md"
+                                                    value="Login">
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+                        aria-labelledby="loginModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title" id="loginModalLabel">Login App</h1>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="login-box" class="col-md-12">
+                                        <form id="login-form" class="form" method="post" onsubmit="loginUser (this)">
+                                            <h1 class="text-center text-info fs-2">Novo usuário</h1>
+                                            <div class="form-group">
+                                                <label for="login" class="text-info fs-4">Usuário</label><br>
+                                                <input type="text" name="txt_login" id="txt_login" class="form-control"
+                                                    placeholder="Insira o usuário...">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nome" class="text-info fs-4">Nome completo</label><br>
+                                                <input type="text" name="txt_nome" id="txt_nome" class="form-control"
+                                                    placeholder="Insira seu nome completo...">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email" class="text-info fs-4">Email</label><br>
+                                                <input type="text" name="txt_email" id="txt_email" class="form-control"
+                                                    placeholder="Insira o seu email...">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="senha" class="text-info fs-4">Senha</label><br>
+                                                <input type="password" name="txt_senha" id="txt_senha"
+                                                    class="form-control" placeholder="Insira a senha...">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="senha2" class="text-info fs-4">Confirmação de
+                                                    Senha</label><br>
+                                                <input type="password" name="txt_senha2" id="txt_senha2"
+                                                    class="form-control" placeholder="Repita a senha...">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Cancelar</button>
+                                    <button type="button" id="btn_salvar" class="btn btn-info">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="direita col-lg-2"></div>
     </main>
 
 
 </body>
-<script src="/assets/js/app.js"></script>
+<!-- Sistema de Usuários -->
+<script>
+function processaFormLogin (event) {
+event.preventDefault ();
+
+var username = document.getElementById('username').value;
+var password = document.getElementById('password').value;
+
+resultadoLogin = loginUser (username, password);
+if (resultadoLogin) {
+window.location.href = 'paginaLogado.html';
+}
+else {
+alert ('Usuário ou senha incorretos');
+}
+}
+
+function salvaLogin (event) {
+
+event.preventDefault ();
+
+let login = document.getElementById('txt_login').value;
+let nome = document.getElementById('txt_nome').value;
+let email = document.getElementById('txt_email').value;
+let senha = document.getElementById('txt_senha').value;
+let senha2 = document.getElementById('txt_senha2').value;
+if (senha != senha2) {
+alert ('As senhas informadas não conferem.');
+return
+}
+
+addUser (nome, login, senha, email);
+alert ('Usuário salvo com sucesso. Proceda com o login para ');
+
+$('#loginModal').modal('hide');
+}
+
+document.getElementById ('login-form').addEventListener ('submit', processaFormLogin);
+
+document.getElementById ('btn_salvar').addEventListener ('click', salvaLogin);
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="/assets/js/appLogin.js"></script>
 <script src="/assets/js/JSON.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"

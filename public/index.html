@@ -47,7 +47,22 @@
 
         <!-- Cards -->
         <div class="container">
-            <h1 id="todosItens">Todos os Itens</h1>
+            <div class="row pesquisa">
+                <div class="todosItensDiv col-lg-9 col-sm-12">
+                    <h1 id="todosItens">Todos os Itens</h1>
+                </div>
+                <div class="pesquisa col-lg-3 text-end col-sm-12">
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+                            <form class="d-flex" role="search">
+                                <input class="inputProcurar form-control me-2" type="search" placeholder="Procure aqui..."
+                                    aria-label="Search" />
+                                <button class="btnProcurar" type="submit">Procurar</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+            </div>
             <div class="row justify-content-center g-4" id="todosNoticia"></div>
         </div>
         <!-- Gráfico -->
@@ -217,7 +232,7 @@
             data: {
                 labels: ["Economia", "Meio Ambiente", "Mundo", "Saúde", "Trabalho e Carreira"],
                 datasets: [{
-                    label: 'Número de Notícias com a categoria',
+                    label: 'Notícias',
                     data: categoriaNoticia,
                     backgroundColor: [
                         'rgb(255, 0, 0)',
@@ -234,6 +249,7 @@
 
     }
 </script>
+
 <script src="/assets/js/JSON.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"

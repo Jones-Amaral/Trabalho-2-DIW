@@ -1,3 +1,4 @@
+/* JS para CRUD */
 const apiUrl = '/noticias';
 
 function readNoticia(processaDados) {
@@ -67,6 +68,7 @@ function deleteNoticia(id, refreshFunction) {
             displayMessage("Erro ao remover noticia");
         });
 }
+
 function displayMessage(msg) {
     alert(msg);
 }
