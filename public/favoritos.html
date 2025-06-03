@@ -22,13 +22,15 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                     <div class="navbar-nav" id="navBarMenu">
-                        <a class="nav-link active fs-3 m-1" id="home" aria-current="page" href="index.html">Home</a>                        
+                        <a class="nav-link active fs-3 m-1" id="home" aria-current="page" href="index.html">Home</a>
                         <a class="nav-link active fs-3 m-1" id="econ" href="#">Economia</a>
                         <a class="nav-link active fs-3 m-1" id="meio" href="#">Meio Ambiente</a>
                         <a class="nav-link active fs-3 m-1" id="mundo" href="#">Mundo</a>
                         <a class="nav-link active fs-3 m-1" id="curi" href="#">Curiosidades</a>
-                        <a href="cadastroCRUD.html" id="cadastroHeader" class="nav-link active fs-3 m-1"><u>Cadastro</u></a>
-                        <a href="favoritos.html" id="favoritoHeader" class="nav-link active fs-3 m-1"><u>Favoritos</u></a>
+                        <a href="cadastroCRUD.html" id="cadastroHeader"
+                            class="nav-link active fs-3 m-1"><u>Cadastro</u></a>
+                        <a href="favoritos.html" id="favoritoHeader"
+                            class="nav-link active fs-3 m-1"><u>Favoritos</u></a>
                         <a href="login.html" id="loginHeader" class="nav-link active fs-3 m-1"><u>Login | Logout</u></a>
                     </div>
                 </div>
@@ -44,7 +46,47 @@
 
 
 </body>
-<script src="/assets/js/app.js"></script>
+<script>
+    fetch("http://localhost:3000/noticias")
+        .then(res => res.json())
+        .then(data => {
+            favoritos = data;
+            cardsFavoritos = document.getElementById("favoritos");
+            strFavoritos = "";
+            for (let i = 0; i < favoritos.length; i++) {
+                favorito = favoritos[i];
+                if (favorito[i].favotiro == true) {
+                    strFavoritos += `<div class="col-12 col-lg-3 col-md-4 p-3">
+        <a href="detalhe.html?id=${favorito.id}" class="text-dark">
+            <div id="corpoNoticia">
+                <img src="${favorito.imagem}" class="card-img-top" alt="${favorito.titulo}"
+                    style="width: 100%;   height: 200px">
+        </a>
+        <img src="/assets/img/coracao.png" id="favoritar-imagem" alt="favoritar" onclick="favorito(this, ${favorito.id})">
+        <a href="detalhe.html?id=${favorito.id}" class="text-dark">
+            <div class="conteudo">
+                <div class="card-body">
+                    <h2 class="card-title">${favorito.titulo}</h2>
+                    <p class="card-text">${favorito.descricao}</p>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${favorito.autor}</li>
+                    <li class="list-group-item">${favorito.data}</li>
+                    <li class="list-group-item">${favorito.categoria}</li>
+                </ul>
+            </div>
+    </div>
+    </a>
+    </div>`
+                } cardsFavoritos.innerHTML = strFavoritos;
+            }
+        }
+        )
+
+        .catch(err => console.error(err))
+</script>
+<script src="/assets/js/appCRUD.js"></script>
 <script src="/assets/js/JSON.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">

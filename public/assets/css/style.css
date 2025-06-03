@@ -251,6 +251,15 @@ a {
     font-weight: 700;
 
 }
+#corpoNoticia{
+    position: relative;
+}
+#favoritar-imagem{
+    position: absolute;
+    width: 40px;
+    top: 20px;
+    right: 20px;
+}
 
 /* Página de cadastro */
 

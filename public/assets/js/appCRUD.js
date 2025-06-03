@@ -72,3 +72,28 @@ function deleteNoticia(id, refreshFunction) {
 function displayMessage(msg) {
     alert(msg);
 }
+
+/* Favoritos */
+function favorito(elemento, id) {
+
+    if (elemento.src.includes("/assets/img/coracao.png")) {
+        confereFavorito = true;
+        elemento.src = "/assets/img/coracao-preenchido.png";
+    }
+    else {
+        elemento.src = "/assets/img/coracao.png";
+        confereFavorito = false;
+    }
+    fetch(`http://localhost:3000/noticias/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            favorito: confereFavorito
+        })
+    })
+
+}
+
+/* Login */
