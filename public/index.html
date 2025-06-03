@@ -63,8 +63,10 @@
                     </nav>
                 </div>
             </div>
+
             <div class="row justify-content-center g-4" id="todosNoticia"></div>
         </div>
+
         <!-- Gráfico -->
         <div class="grafico">
             <h1 id="graficoTitulo">Gráfico</h1>
@@ -116,27 +118,30 @@
 
 </body>
 
-<!-- Fetch -->
 <script>
     fetch("http://localhost:3000/noticias")
         .then(res => res.json())
         .then(data => {
             carregaDados(data);
             Graficos(data);
-            favoritar(data);
         })
         .catch(err => console.error(err))
 </script>
-
 <!-- Cards e Carrossel -->
 <script>
     function carregaDados(noticias) {
+
         let carrosselNoticias = document.getElementById("carrossel")
         let todosNoticia = document.getElementById("todosNoticia")
         let strCards = ""
         let strCarrossel = ""
         for (let i = 0; i < noticias.length; i++) {
             let noticia = noticias[i];
+
+            let imagemFavorito = noticia.favorito
+                ? "/assets/img/coracao-preenchido.png"
+                : "/assets/img/coracao.png";
+
             strCards +=
                 `<div class="col-12 col-lg-3 col-md-4 p-3">
         <a href="detalhe.html?id=${noticia.id}" class="text-dark">
@@ -144,7 +149,7 @@
                 <img src="${noticia.imagem}" class="card-img-top" alt="${noticia.titulo}"
                     style="width: 100%;   height: 200px">
         </a>
-        <img src="/assets/img/coracao.png" id="favoritar-imagem" alt="favoritar" onclick="favorito(this, ${noticia.id})">
+        <img src="${imagemFavorito}" id="favoritar-imagem" alt="favoritar" onclick="favorito(this, ${noticia.id})">
         <a href="detalhe.html?id=${noticia.id}" class="text-dark">
             <div class="conteudo">
                 <div class="card-body">
@@ -254,7 +259,8 @@
 
     }
 </script>
-<script src="/assets/js/appCRUD.js"></script>
+
+<script src="/assets/js/app.js"></script>
 <script src="/assets/js/JSON.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"

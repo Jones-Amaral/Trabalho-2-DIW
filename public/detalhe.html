@@ -22,13 +22,15 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                     <div class="navbar-nav" id="navBarMenu">
-                        <a class="nav-link active fs-3 m-1" id="home" aria-current="page" href="index.html">Home</a>                        
+                        <a class="nav-link active fs-3 m-1" id="home" aria-current="page" href="index.html">Home</a>
                         <a class="nav-link active fs-3 m-1" id="econ" href="#">Economia</a>
                         <a class="nav-link active fs-3 m-1" id="meio" href="#">Meio Ambiente</a>
                         <a class="nav-link active fs-3 m-1" id="mundo" href="#">Mundo</a>
                         <a class="nav-link active fs-3 m-1" id="curi" href="#">Curiosidades</a>
-                        <a href="cadastroCRUD.html" id="cadastroHeader" class="nav-link active fs-3 m-1"><u>Cadastro</u></a>
-                        <a href="favoritos.html" id="favoritoHeader" class="nav-link active fs-3 m-1"><u>Favoritos</u></a>
+                        <a href="cadastroCRUD.html" id="cadastroHeader"
+                            class="nav-link active fs-3 m-1"><u>Cadastro</u></a>
+                        <a href="favoritos.html" id="favoritoHeader"
+                            class="nav-link active fs-3 m-1"><u>Favoritos</u></a>
                         <a href="login.html" id="loginHeader" class="nav-link active fs-3 m-1"><u>Login | Logout</u></a>
                     </div>
                 </div>
@@ -66,45 +68,42 @@
         /* Noticia */
         let params = new URLSearchParams(location.search);
         let id = params.get("id");
-        noticia = noticias.find(function (elem) { return elem.id == id })
-        if (noticia) {
-            document.getElementById("introducao").innerHTML = `
-            <div class="reportagem-flex">
-                
-            <div class="espaco-vazio"></div>
 
-            <div class="reportagemCentro">
+        fetch("http://localhost:3000/noticias")
+            .then(res => res.json())
+            .then(noticias => {
+                // --- Detalhe da notícia ---
+                const noticia = noticias.find(n => n.id == id);
+                if (noticia) {
+                    document.getElementById("introducao").innerHTML = `
+                        <div class="reportagem-flex">
+                            <div class="espaco-vazio"></div>
+                            <div class="reportagemCentro">
+                                <h3 class="text-center"> ${noticia.titulo} </h3><br>
+                                <h4 class="text-center"> ${noticia.descricao} </h4><br> 
+                                <h5> ${noticia.autor},</h5>
+                                <h6> ${noticia.data}, </h6>
+                                <h6> Categoria: ${noticia.categoria} </h6>
+                                <img src="${noticia.imagem}" alt="${noticia["descricao-imagem"] || ""}" class="imagem-banner p-3"/><br> 
+                                <p>${noticia.conteudo} </p>
+                                ${noticia["imagem-complementar"] && noticia["imagem-complementar"].length > 0
+                            ? `<img src="${noticia["imagem-complementar"][0].src}" alt="${noticia["imagem-complementar"][0].descricao}" id="imagem-complementar" class="imagem-2 p-3"/>`
+                            : ''
+                        }
+                            </div>
+                            <div class="espaco-vazio"></div>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById("introducao").innerHTML = `<p>Noticia não encontrada</p>`
+                }
 
-            <h3 class="text-center"> ${noticia.titulo} </h3> <br>
-
-            <h4 class="text-center"> ${noticia.descricao} </h4> <br> 
-
-            <h5> ${noticia.autor},</h5>
-
-            <h6> ${noticia.data}, </h6>
-
-            <h6> Categoria: ${noticia.categoria} </h6>
-
-            <img src="${noticia.imagem}" alt="${noticia["descricao-imagem"]}" class="imagem-banner p-3"/> <br> 
-            
-            <p>${noticia.conteudo} </p>
-
-            <img src="${noticia["imagem-complementar"][0].src}" alt="${noticia["imagem-complementar"][0]["descricao"]}" id="imagem-complementar" class="imagem-2 p-3"/> <br></div>
-
-            
-            <div class="espaco-vazio"></div>
-            </div>
-            `
-        } else {
-            document.getElementById("introducao").innerHTML = `<p>Noticia não encontrada</p>`
-        }
-
-        /* Cards ao final */
-        let fotoItem = document.getElementById("fotoItem")
-        let strCards = ""
-        for (let i = 0; i < noticias.length; i++) {
-            let noticia = noticias[i];
-            strCards += `<div class="col-12 col-lg-3 col-md-4 p-3">
+                /* Cards ao final */
+                let fotoItem = document.getElementById("fotoItem")
+                let strCards = ""
+                for (let i = 0; i < noticias.length; i++) {
+                    let noticia = noticias[i];
+                    strCards += `<div class="col-12 col-lg-3 col-md-4 p-3">
             <a href="detalhe.html?id=${noticia.id}" class="text-dark">
                 <div id="corpoNoticia">
                     <img src="${noticia.imagem}" class="card-img-top" alt="${noticia.titulo}" style="width: 100%;   height: 200px">
@@ -124,8 +123,10 @@
             </div>
             </a>
         </div>`
-        }
-        fotoItem.innerHTML = strCards
+                }
+                fotoItem.innerHTML = strCards
+            }
+            )
     }
 </script>
 
