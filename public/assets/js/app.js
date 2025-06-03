@@ -79,7 +79,7 @@ function favorito(elemento, id) {
         .then(res => res.json())
         .then(data => {
             favoritado = data;
-            
+
             if (elemento.src.includes("/assets/img/coracao.png")) {
                 confereFavorito = true;
                 elemento.src = "/assets/img/coracao-preenchido.png";
@@ -99,5 +99,27 @@ function favorito(elemento, id) {
             })
         })
 }
+
+/* Pesquisa */
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", (event) => {
+    const value = event.target.value;
+    const items = document.querySelectorAll(".cardNoticia")
+    items.forEach(cardNoticia => {
+        cardText = formatString(cardNoticia.textContent)
+        if (cardText.indexOf(value) !== -1)
+            cardNoticia.style.display = "grid";
+        else 
+                    cardNoticia.style.display = "none";
+    })
+});
+
+function formatString(value) {
+    return value.toLowerCase()
+        .trim()
+}
+
+
 
 /* Login */

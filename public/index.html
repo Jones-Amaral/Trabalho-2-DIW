@@ -55,8 +55,8 @@
                     <nav class="navbar bg-body-tertiary">
                         <div class="container-fluid">
                             <form class="d-flex" role="search">
-                                <input class="inputProcurar form-control me-2" type="search"
-                                    placeholder="Procure aqui..." aria-label="Search" />
+                                <input class="inputProcurar form-control me-2" type="text"
+                                    placeholder="Procure aqui..." id="search" aria-label="Search" />
                                 <button class="btnProcurar" type="submit">Procurar</button>
                             </form>
                         </div>
@@ -143,7 +143,7 @@
                 : "/assets/img/coracao.png";
 
             strCards +=
-                `<div class="col-12 col-lg-3 col-md-4 p-3">
+                `<div class="cardNoticia col-12 col-lg-3 col-md-4 p-3">
         <a href="detalhe.html?id=${noticia.id}" class="text-dark">
             <div id="corpoNoticia">
                 <img src="${noticia.imagem}" class="card-img-top" alt="${noticia.titulo}"
