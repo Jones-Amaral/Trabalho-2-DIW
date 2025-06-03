@@ -55,10 +55,11 @@
                     <nav class="navbar bg-body-tertiary">
                         <div class="container-fluid">
                             <form class="d-flex" role="search">
-                                <input class="inputProcurar form-control me-2" type="text"
-                                    placeholder="Procure aqui..." id="search" aria-label="Search" />
-                                <button class="btnProcurar" type="submit">Procurar</button>
+                                <input class="inputProcurar form-control me-2" type="text" placeholder="Procure o título..."
+                                    id="search" aria-label="Search" />
+                                <!-- <button class="btnProcurar" type="submit">Procurar</button><br> --> <!-- Botão Pesquisar -->
                             </form>
+                                <p id="pesquisaNenhum">Nenhum resultado encontrado</p>
                         </div>
                     </nav>
                 </div>
@@ -137,7 +138,6 @@
         let strCarrossel = ""
         for (let i = 0; i < noticias.length; i++) {
             let noticia = noticias[i];
-
             let imagemFavorito = noticia.favorito
                 ? "/assets/img/coracao-preenchido.png"
                 : "/assets/img/coracao.png";

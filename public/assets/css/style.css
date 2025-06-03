@@ -260,6 +260,9 @@ a {
     top: 20px;
     right: 20px;
 }
+#pesquisaNenhum{
+    display: none;
+}
 
 /* Página de cadastro */
 

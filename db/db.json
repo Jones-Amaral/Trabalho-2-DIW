@@ -1,6 +1,25 @@
 {
   "noticias": [
     {
+      "id": 1,
+      "titulo": "Após congelar recursos, Trump sobe o tom contra Harvard e exige que universidade peça desculpas",
+      "descricao": "Porta-voz da Casa Branca afirmou que instituição foi palco de episódios de 'antissemitismo', em uma referência a protestos pró-Palestina em 2024. Presidente avalia cancelar isenção fiscal contra a universidade.",
+      "conteudo": "A Casa Branca afirmou nesta terça-feira (15) que o presidente dos Estados Unidos, Donald Trump, quer que a Universidade de Harvard se desculpe por episódios de 'antissemitismo' na instituição. O governo fez referência a protestos pró-Palestina e contra a guerra na Faixa de Gaza que ocorreram em várias universidades americanas ao longo de 2024.<br>A declaração foi feita um dia após o governo Trump determinar o bloqueio de mais de US$ 2,2 bilhões em recursos de Harvard. Na segunda-feira (14), a universidade afirmou que não iria atender a uma série de exigências do governo, como encerrar programas de inclusão e equidade.<br>Mais cedo, nesta terça-feira, Trump afirmou que avalia a possibilidade de cancelar a isenção fiscal concedida a Harvard e passar a taxá-la como uma 'entidade política' por promover 'doença inspirada em política, ideologia e terrorismo'.<br>.Ao ser questionada sobre o assunto, a porta-voz da Casa Branca, Karoline Leavitt, afirmou que Trump quer que a universidade peça desculpas.",
+      "categoria": "Mundo",
+      "autor": "G1",
+      "favorito": false,
+      "data": "15/04/2025",
+      "imagem": "assets/img/manifestantes.avif",
+      "descricao-imagem": "Manifestantes",
+      "imagem-complementar": [
+        {
+          "id": 1,
+          "src": "assets/img/harvard.avif",
+          "descricao": "Harvard"
+        }
+      ]
+    },
+    {
       "id": 2,
       "titulo": "Governo prevê 2027 'desafiador', diz que há risco de paralisia e promete novas medidas",
       "descricao": "Lei de Diretrizes Orçamentárias inclui permissão para governo abater R$ 55 bilhões em despesas fora da meta em 2026. Se números se confirmarem, governo Lula será inteiro 'no vermelho' no próximo ano.",
@@ -58,7 +77,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 5,
       "titulo": "China convoca reunião do Conselho de Segurança da ONU para falar de tarifas e acusa governo Trump de 'bullying'",
       "descricao": "Em carta enviada aos países membros das Nações Unidas, o governo chinês acusa os Estados Unidos de intimidar e 'lançar uma sombra sobre os esforços globais pela paz e desenvolvimento' ao usar tarifas como armas.",
       "conteudo": "A China enviou uma carta para todos os 193 Estados-membros das Nações Unidas para convocá-los para uma reunião informal do Conselho de Segurança da ONU na próxima quarta-feira (23).<br>No documento, o governo chinês acusa os Estados Unidos de intimidar e 'lançar uma sombra sobre os esforços globais pela paz e desenvolvimento' ao usar tarifas como armas:<br>'Todos os países, particularmente os países em desenvolvimento, são vítimas de unilateralismo e práticas de bullying. Ao usar tarifas como arma de extrema pressão, os EUA violaram gravemente as regras do comércio internacional e provocaram choques e turbulências severos na economia mundial e no sistema de comércio multilateral, lançando uma sombra sobre os esforços globais pela paz e desenvolvimento'.<br>Segundo a agência de notícias Reuters, a missão dos EUA nas Nações Unidas encaminhou um pedido de comentário sobre a reunião planejada pela China ao Departamento de Estado, mas ainda não obteve resposta.",
@@ -77,7 +96,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 6,
       "titulo": "Ozempic: Anvisa torna obrigatória a retenção de receita para compra de canetas emagrecedoras",
       "descricao": "Drogas prometem a perda de até 17% da massa corporal em um ano, mas também têm sido procuradas por pessoas que querem emagrecer rápido, sem indicação para o tratamento com a substância, o que pode trazer riscos à saúde.",
       "conteudo": "A Agência Nacional de Vigilância Sanitária (Anvisa) decidiu nesta quarta-feira (16) que será obrigatória a retenção de receita médica para venda de medicamentos como Ozempic, Wegovy, Saxenda. Mounjaro e similares, que são usados para o emagrecimento.<br>Atualmente, esta categoria de medicamentos classificada com a tarja vermelha só deveria ser comercializada com a apresentação da receita. Na prática, é comum que ela não seja exigida e, por isso, clientes sem o documento conseguem comprar os medicamentos.<br>A decisão foi tomada pela Anvisa depois da divulgação de uma carta pelo Conselho Federal de Medicina (CFM) na qual os médicos defendiam a necessidade de um maior controle na prescrição desse tipo de medicamentos.<br>Em seus votos, os diretores da agência destacaram que existe a necessidade de proteger a população do uso abusivo desses medicamentos. Conhecidos popularmente como 'canetas emagrecedoras', eles foram desenvolvidos para diabetes, mas acabaram sendo também indicados para a obesidade.",
@@ -96,7 +115,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 7,
       "titulo": "Musk pergunta por DM a influencer se ela queria ter um filho com ele e leva 'não', diz jornal",
       "descricao": "Segundo reportagem do 'Wall Street Journal', Tiffany Fong contou a Ashley St. Clair, que diz ter tido um filho com o bilionário, sobre a proposta, feita depois que ele passou a interagir com seus conteúdos no X. Os dois nunca se encontraram.",
       "conteudo": "Elon Musk já tem 14 filhos, mas segundo o jornal americano 'The Wall Street Journal', o bilionário ainda não está satisfeito e vem buscando aumentar ainda mais a sua prole usando sua rede social, X.<br>Tiffany Fong, influenciadora digital que tem 337 mil seguidores na plataforma, teria recebido um convite para ser mãe de um filho dele através de mensagem privada em novembro, depois de um período de meses de interação entre os dois. Após negar a proposta, no entanto, ele deixou de segui-la.<br>De acordo com a reportagem, Musk não gostou quando soube que Fong havia falado sobre o pedido dele a outras pessoas - entre elas, a também influenciadora de direita Ashley St. Clair, que diz ser a mãe de um dos 14 filhos do bilionário - e a a repreendeu por não ser discreta.<br>Os dois nunca se conheceram pessoalmente. Fontes disseram ao jornal que ela não quis seguir em frente com Musk porque 'quer ter filhos em uma família nuclear mais tradicional', mas que confidenciou a alguns amigos que tinha medo de recusá-lo por causa dos ganhos que teve ao passar a ser seguida e compartilhada por ele.",
@@ -115,7 +134,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 8,
       "titulo": "Semana de 4 dias: as percepções dos chefes e funcionários, 1 ano após a redução da jornada",
       "descricao": "Colaboradores estão mais engajados, menos ansiosos, e conseguem conciliar melhor a vida pessoal e profissional. No entanto, destacam a necessidade de um planejamento eficiente para não prejudicar as folgas.",
       "conteudo": "As empresas brasileiras que participaram de um experimento sobre a semana de 4 dias de trabalho notaram um aumento de 60% no engajamento dos funcionários, um ano após o início da redução da jornada.<br>A colaboração também cresceu 85,4%, contribuindo para uma melhora de 61,5% na execução de projetos e de 44% na capacidade das equipes de cumprirem prazos.<br>Os funcionários, por sua vez, relataram mais energia para realizar as tarefas, redução da ansiedade e insônia, e melhora na conciliação da vida pessoal e profissional.<br>Mais de 70% das empresas, inclusive, disseram ter aumentado o faturamento no último ano. Apesar disso, levantaram preocupações sobre a manutenção do modelo a longo prazo, especialmente em períodos de alta demanda ou mudanças organizacionais.",
@@ -130,25 +149,6 @@
           "id": 1,
           "src": "assets/img/trabalho.jpeg",
           "descricao": "Trabalho"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "titulo": "Após congelar recursos, Trump sobe o tom contra Harvard e exige que universidade peça desculpas",
-      "descricao": "Porta-voz da Casa Branca afirmou que instituição foi palco de episódios de 'antissemitismo', em uma referência a protestos pró-Palestina em 2024. Presidente avalia cancelar isenção fiscal contra a universidade.",
-      "conteudo": "A Casa Branca afirmou nesta terça-feira (15) que o presidente dos Estados Unidos, Donald Trump, quer que a Universidade de Harvard se desculpe por episódios de 'antissemitismo' na instituição. O governo fez referência a protestos pró-Palestina e contra a guerra na Faixa de Gaza que ocorreram em várias universidades americanas ao longo de 2024.<br>A declaração foi feita um dia após o governo Trump determinar o bloqueio de mais de US$ 2,2 bilhões em recursos de Harvard. Na segunda-feira (14), a universidade afirmou que não iria atender a uma série de exigências do governo, como encerrar programas de inclusão e equidade.<br>Mais cedo, nesta terça-feira, Trump afirmou que avalia a possibilidade de cancelar a isenção fiscal concedida a Harvard e passar a taxá-la como uma 'entidade política' por promover 'doença inspirada em política, ideologia e terrorismo'.<br>.Ao ser questionada sobre o assunto, a porta-voz da Casa Branca, Karoline Leavitt, afirmou que Trump quer que a universidade peça desculpas.",
-      "categoria": "Mundo",
-      "autor": "G1",
-      "favorito": false,
-      "data": "15/04/2025",
-      "imagem": "assets/img/manifestantes.avif",
-      "descricao-imagem": "Manifestantes",
-      "imagem-complementar": [
-        {
-          "id": 1,
-          "src": "assets/img/harvard.avif",
-          "descricao": "Harvard"
         }
       ]
     }

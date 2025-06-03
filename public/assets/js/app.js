@@ -104,20 +104,36 @@ function favorito(elemento, id) {
 const searchInput = document.getElementById("search");
 
 searchInput.addEventListener("input", (event) => {
-    const value = event.target.value;
-    const items = document.querySelectorAll(".cardNoticia")
+
+    const value = formatString(event.target.value);
+
+    const items = document.querySelectorAll(".cardNoticia");
+
+    const noResults = document.getElementById("pesquisaNenhum");
+
+    let hasResults = false;
+
     items.forEach(cardNoticia => {
         cardText = formatString(cardNoticia.textContent)
-        if (cardText.indexOf(value) !== -1)
-            cardNoticia.style.display = "grid";
-        else 
-                    cardNoticia.style.display = "none";
+        if (cardText.indexOf(value) !== -1) {
+            cardNoticia.style.display = "flex";
+            hasResults = true;
+        }
+        else {
+            cardNoticia.style.display = "none";
+        }
     })
+    if (hasResults)
+        noResults.style.display = "none";
+    else
+    noResults.style.display = "block"
 });
 
 function formatString(value) {
     return value.toLowerCase()
         .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
 }
 
 
