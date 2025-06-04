@@ -260,6 +260,13 @@ a {
     top: 20px;
     right: 20px;
 }
+
+.favoritar-imagem{
+    position: fixed;
+    width: 60px;
+    bottom: 30px;
+    right: 50px;
+}
 #pesquisaNenhum{
     display: none;
 }

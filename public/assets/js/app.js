@@ -115,6 +115,7 @@ function favorito(elemento, id) {
 /* Esconde Favoritos e Cadastro */
 
 function confereUsuario() {
+    console.log('confereUsuario() chamado');
     const usuarioCorrente = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
     const cadastroLink = document.getElementById('cadastroHeader');
     const favoritoLink = document.getElementById('favoritoHeader');
@@ -133,7 +134,7 @@ function confereUsuario() {
 
         favoritoLink.style.display = 'inline';
 
-        if (usuarioCorrente.admin == true) {
+        if (usuarioCorrente.admin === true) {
             cadastroLink.style.display = 'inline';
         }
     } else {
@@ -187,7 +188,7 @@ function generateUUID() {
 
 const dadosIniciais = {
     usuarios: [
-        { "id": generateUUID(), "login": "admin", "senha": "123", "nome": "Administrador do Sistema", "email": "admin@abc.com", "admin": false },
+        { "id": generateUUID(), "login": "admin", "senha": "123", "nome": "Administrador do Sistema", "email": "admin@abc.com", "admin": true },
         { "id": generateUUID(), "login": "user", "senha": "123", "nome": "Usuario Comum", "email": "user@abc.com", "admin": false },
     ]
 };
@@ -221,7 +222,7 @@ function loginUser(login, senha) {
                         login: usuario.login,
                         email: usuario.email,
                         nome: usuario.nome,
-                        admin: usuario.admin
+                        admin: usuario.admin == true,
                     };
 
                     sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
