@@ -115,7 +115,6 @@ function favorito(elemento, id) {
 /* Esconde Favoritos e Cadastro */
 
 function confereUsuario() {
-    console.log('confereUsuario() chamado');
     const usuarioCorrente = JSON.parse(sessionStorage.getItem('usuarioCorrente'));
     const cadastroLink = document.getElementById('cadastroHeader');
     const favoritoLink = document.getElementById('favoritoHeader');
