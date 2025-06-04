@@ -7,3 +7,5 @@
 5) Para adicionar os privilégios de admin, vá em db.json, no seu usuário, altere admin para true.
 6) Você deve fechar e abrir a página para que seja alterado.
 7) Agora você pode cadastrar e favoritar.
+
+Obs: Por algum motivo algumas vezes pode acontecer do gráfico bugar e não abrir, basta reiniciar a página algumas vezes e irá abrir.
