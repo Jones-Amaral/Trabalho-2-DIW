@@ -152,5 +152,15 @@
         }
       ]
     }
+  ],
+  "usuarios": [
+    {
+      "id": "db1ea8aa-a51a-44dc-b48f-dfa97898e7d0",
+      "login": "Jones",
+      "senha": "Jones",
+      "nome": "Jones",
+      "email": "Jones",
+      "admin": true
+    }
   ]
 }

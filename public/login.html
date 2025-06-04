@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
+<body onload="confereUsuario()">
     <header>
         <nav id="navbar" class="navbar navbar-expand-lg z-3">
             <div class="container-fluid">
@@ -38,7 +38,7 @@
         </nav>
     </header>
 
-<!-- Tela de favoritos disponível somente se o usuário estiver logado 
+    <!-- Tela de favoritos disponível somente se o usuário estiver logado 
  tela de login se ele estiver deslogado, ou deslogar se ele estiver logado
  Conferir a responsividade das páginas 
  O usuário deve ser visível somente para administrador para editar a página e visualizar a opção, pode ser marcado pelo db.json se ele é ou não-->
@@ -142,45 +142,48 @@
 </body>
 <!-- Sistema de Usuários -->
 <script>
-function processaFormLogin (event) {
-event.preventDefault ();
+    async function processaFormLogin(event) {
+        event.preventDefault();
 
-var username = document.getElementById('username').value;
-var password = document.getElementById('password').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-resultadoLogin = loginUser (username, password);
-if (resultadoLogin) {
-window.location.href = 'paginaLogado.html';
-}
-else {
-alert ('Usuário ou senha incorretos');
-}
-}
+        const resultadoLogin = await loginUser(username, password);
 
-function salvaLogin (event) {
+        if (resultadoLogin) {
+            window.location.href = 'index.html';
+        } else {
+            alert('Usuário ou senha incorretos');
+        }
+    }
 
-event.preventDefault ();
+    function salvaLogin(event) {
 
-let login = document.getElementById('txt_login').value;
-let nome = document.getElementById('txt_nome').value;
-let email = document.getElementById('txt_email').value;
-let senha = document.getElementById('txt_senha').value;
-let senha2 = document.getElementById('txt_senha2').value;
-if (senha != senha2) {
-alert ('As senhas informadas não conferem.');
-return
-}
+        event.preventDefault();
 
-addUser (nome, login, senha, email);
-alert ('Usuário salvo com sucesso. Proceda com o login para ');
+        let admin = false;
+        let login = document.getElementById('txt_login').value;
+        let nome = document.getElementById('txt_nome').value;
+        let email = document.getElementById('txt_email').value;
+        let senha = document.getElementById('txt_senha').value;
+        let senha2 = document.getElementById('txt_senha2').value;
+        if (senha != senha2) {
+            alert('As senhas informadas não conferem.');
+            return
+        }
 
-$('#loginModal').modal('hide');
-}
+        addUser(nome, login, senha, email, admin);
+        alert('Usuário salvo com sucesso. Proceda com o login para ');
 
-document.getElementById ('login-form').addEventListener ('submit', processaFormLogin);
+        $('#loginModal').modal('hide');
+    }
 
-document.getElementById ('btn_salvar').addEventListener ('click', salvaLogin);
+    document.getElementById('login-form').addEventListener('submit', processaFormLogin);
+
+    document.getElementById('btn_salvar').addEventListener('click', salvaLogin);
 </script>
+
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -190,10 +193,7 @@ document.getElementById ('btn_salvar').addEventListener ('click', salvaLogin);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-<script src="/assets/js/appLogin.js"></script>
+<script src="/assets/js/app.js"></script>
 <script src="/assets/js/JSON.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"></script>
 
 </html>

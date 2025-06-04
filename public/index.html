@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
+<body onload="confereUsuario()">
     <header>
         <nav id="navbar" class="navbar navbar-expand-lg z-3">
             <div class="container-fluid">
@@ -55,11 +55,12 @@
                     <nav class="navbar bg-body-tertiary">
                         <div class="container-fluid">
                             <form class="d-flex" role="search">
-                                <input class="inputProcurar form-control me-2" type="text" placeholder="Procure o título..."
-                                    id="search" aria-label="Search" />
-                                <!-- <button class="btnProcurar" type="submit">Procurar</button><br> --> <!-- Botão Pesquisar -->
+                                <input class="inputProcurar form-control me-2" type="text"
+                                    placeholder="Procure o título..." id="search" aria-label="Search" />
+                                <!-- <button class="btnProcurar" type="submit">Procurar</button><br> -->
+                                <!-- Botão Pesquisar -->
                             </form>
-                                <p id="pesquisaNenhum">Nenhum resultado encontrado</p>
+                            <p id="pesquisaNenhum">Nenhum resultado encontrado</p>
                         </div>
                     </nav>
                 </div>
@@ -119,6 +120,7 @@
 
 </body>
 
+<!-- Fetch -->
 <script>
     fetch("http://localhost:3000/noticias")
         .then(res => res.json())
@@ -128,6 +130,7 @@
         })
         .catch(err => console.error(err))
 </script>
+
 <!-- Cards e Carrossel -->
 <script>
     function carregaDados(noticias) {
@@ -257,6 +260,44 @@
             }
         });
 
+    }
+</script>
+
+<!-- Pesquisa -->
+<script>
+    const searchInput = document.getElementById("search");
+
+    searchInput.addEventListener("input", (event) => {
+
+        const value = formatString(event.target.value);
+
+        const items = document.querySelectorAll(".cardNoticia");
+
+        const noResults = document.getElementById("pesquisaNenhum");
+
+        let hasResults = false;
+
+        items.forEach(cardNoticia => {
+            cardText = formatString(cardNoticia.textContent)
+            if (cardText.indexOf(value) !== -1) {
+                cardNoticia.style.display = "flex";
+                hasResults = true;
+            }
+            else {
+                cardNoticia.style.display = "none";
+            }
+        })
+        if (hasResults)
+            noResults.style.display = "none";
+        else
+            noResults.style.display = "block"
+    });
+
+    function formatString(value) {
+        return value.toLowerCase()
+            .trim()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
     }
 </script>
 
